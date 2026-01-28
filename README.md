@@ -8,8 +8,6 @@ This project is a backend service that provides two API endpoints to:
 
 The service is built using **Node.js, Express, and TypeScript**, uses **JSON file storage** for local caching, and integrates with an LLM (OpenAI) for analysis.
 
-No frontend UI is included — this is strictly a backend service.
-
 ---
 
 ## Features
@@ -18,15 +16,12 @@ No frontend UI is included — this is strictly a backend service.
 - Analyze cached issues using an LLM
 - Request validation using Zod
 - Centralized error handling middleware
-- Clean service-layer architecture
-
 ---
 
 ## Tech Stack
 - Node.js
 - Express
 - TypeScript
-- Zod
 - OpenAI API
 - JSON file storage
 
