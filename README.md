@@ -6,7 +6,7 @@ This project is a backend service that provides two API endpoints to:
 1. Fetch and locally cache open GitHub issues from a repository.
 2. Analyze the cached issues using a natural-language prompt and a Large Language Model (LLM).
 
-The service is built using **Node.js, Express, and TypeScript**, uses **JSON file storage** for local caching, and integrates with an LLM (OpenAI) for analysis.
+The service is built using **Node.js, Express, and TypeScript**, uses **JSON file storage** for local caching, and integrates with an LLM (Google Gemini) for analysis.
 
 ---
 
@@ -22,7 +22,7 @@ The service is built using **Node.js, Express, and TypeScript**, uses **JSON fil
 - Node.js
 - Express
 - TypeScript
-- OpenAI API
+- Gemini API
 - JSON file storage
 
 ---
@@ -52,3 +52,12 @@ npm run dev
 
 ### Server will start at:
 http://localhost:3000
+
+## List of prompts used
+
+- same erros are coming can u check latest docs and comeup with a valid model?
+- can u better the prompt in prompt util to get better response from llms?
+
+
+
+
