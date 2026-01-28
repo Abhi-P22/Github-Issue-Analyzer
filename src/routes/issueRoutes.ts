@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { scanRepo, analyzeRepo } from "../controllers/issue.controller.js";
+import { scanRepo, analyzeRepo } from "../controllers/IssueController";
 
 const router = Router();
 
