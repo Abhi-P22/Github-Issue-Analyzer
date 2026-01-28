@@ -38,14 +38,16 @@ JSON file storage is simple, persistent across server restarts, easy to inspect,
 ## Setup & Installation
 
 ### 1. Clone the repository
-<!-- ```bash -->
-git clone <your-repository-url>
-cd github-issue-analyzer
+git clone https://github.com/Abhi-P22/Github-Issue-Analyzer.git   
+cd Github-Issue-Analyzer
 
 ### 2. Install dependencies
 npm install
 
 ### 3. Create a .env file
+have a env file at root with following keys   
+GEMINI_API_KEY= sample key   
+PORT=3000
 
 ### 4. Run the server
 npm run dev
