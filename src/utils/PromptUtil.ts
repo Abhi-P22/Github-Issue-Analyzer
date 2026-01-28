@@ -1,16 +1,27 @@
 import { GitHubIssue } from "../services/GithubService";
 
 export function buildPrompt(userPrompt: string, issues: GitHubIssue[]) {
-  const issueText = issues.map(issue =>
-    `Title: ${issue.title}\nBody: ${issue.body}\nCreated: ${issue.created_at}`
+  const issueText = issues.map((issue, index) =>
+    `Issue ${index + 1}:
+Title: ${issue.title}
+Body: ${issue.body}
+Created at: ${issue.created_at}
+URL: ${issue.html_url}`
   ).join("\n\n");
 
   return `
-User Prompt: ${userPrompt}
+You are an expert GitHub issue analyst.
 
-Here are the GitHub issues:
+Task:
+${userPrompt}
+
+Here are the open issues from the repository:
 ${issueText}
 
-Analyze them and provide insights.
+Please:
+- Identify key themes
+- Summarize main problems
+- Recommend what maintainers should prioritize
+- Respond in clear paragraphs or bullet points
 `;
 }

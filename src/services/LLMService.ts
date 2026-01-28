@@ -1,16 +1,26 @@
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+if (!process.env.GEMINI_API_KEY) {
+  throw new Error("GEMINI_API_KEY is missing");
+}
 
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+console.log("checking api key:",process.env.GEMINI_API_KEY);
+console.log("Gemini API Key:", process.env.GEMINI_API_KEY ? "Loaded" : "Not Loaded");
 export class LLMService {
   async analyze(prompt: string): Promise<string> {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt }]
-    });
+    try {
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    return completion.choices[0].message.content || "No analysis returned.";
+      const result = await model.generateContent(prompt);
+
+      const response = await result.response.text();
+
+      return response || "No analysis returned.";
+    } catch (error) {
+      console.error("Gemini API error:", error);
+      throw new Error("LLM analysis failed");
+    }
   }
 }
